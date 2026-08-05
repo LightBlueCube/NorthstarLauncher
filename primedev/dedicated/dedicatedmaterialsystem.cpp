@@ -111,8 +111,6 @@ ON_DLL_LOAD_DEDI("materialsystem_dx11.dll", DedicatedServerMaterialSystem, (CMod
 		// Leave this standard/debug texture set uninitialized on a null device; do not set its initialized flag or run shutdown releases.
 		module.Offset(0x594B0).Patch("C3 90 90");
 
-
-
 		// Likely the ShaderAPI state-cache shutdown/reset path.
 		// Skip its three hardware-state unbinds on the null ShaderAPI interface, then retain all CPU cache clearing and guarded releases.
 		module.Offset(0x33C3A).Patch("EB 3D 90 90 90 90 90");
